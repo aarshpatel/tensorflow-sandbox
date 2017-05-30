@@ -11,12 +11,22 @@ Huber Loss
 
 import tensorflow as tf
 
+
 def huber_loss(labels, predictions, delta=1.0):
-    """ Implementation of huber loss """
+    """ 
+    Implementation of huber loss 
+    
+    Arguments:
+        labels: true class labels
+        predictions: predicted class labels
+        delta: threshold for huber loss
+    
+    """
 
     residual = tf.abs(predictions - labels)
     condition = tf.less(residual, delta)
     small_res = .5 * tf.square(residual)
     large_res = delta * residual - 0.5 * tf.square(delta)
     return tf.select(condition, small_res, large_res)
+
 
