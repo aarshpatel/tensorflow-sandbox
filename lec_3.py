@@ -1,6 +1,9 @@
 """
 Improving our linear regression model using huber loss
 
+Squared loss has the disadvantage that it has the tendency to be dominated
+by outliers. 
+
 Huber Loss
 ----------
     - Robust to outliers 
